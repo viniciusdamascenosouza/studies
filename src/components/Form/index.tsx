@@ -6,11 +6,11 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  align-items: flex-start;
-
-  border-radius: 8px;
-  background-color: #7063b4;
+  align-items: center;
   padding: 2em;
+  border-radius: 8px;
+  background-color: #526D82;
+  box-shadow: 5px 5px 20px -6px #000000;
 `
 
 const LabelAndInput = styled.div`
@@ -19,6 +19,7 @@ const LabelAndInput = styled.div`
   row-gap: .2em;
   color: white;
   font-size: 1.2em;
+  width: 100%;
 `
 
 const Input = styled.input`
@@ -27,11 +28,12 @@ const Input = styled.input`
       box-sizing: border-box;
       border: unset;
       border-radius: 5px;
-      background-color: #49597c;
-      box-shadow: 0px 2px 4px #12125e9f inset;
+      background-color: #9DB2BF;
+      box-shadow: 0px 2px 4px #0202589f inset;
       
       &::placeholder {
-        color: #BFBFBF;
+        color: #fff;
+        font-size: .7em;
       }
 `
 
