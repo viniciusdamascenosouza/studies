@@ -6,7 +6,7 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  align-items: center;
+  align-items: stretch;
   padding: 2em;
   border-radius: 8px;
   background-color: #526D82;
