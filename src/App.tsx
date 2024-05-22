@@ -5,20 +5,35 @@ import styled from "styled-components";
 import Timer from "./components/Timer";
 
 const Container = styled.div`
+  display: grid;
+  grid-template-columns: 40% 60%;
+`;
+
+const ContainerLeft = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  align-items: stretch;
-  width: 50%;
-  padding: 2em;
-`;
+  row-gap: 4em;
+
+  grid-column: 1 / 2;
+`
+
+const ContainerRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / 3;
+`
 
 function App() {
   return (
     <Container>
-      <Form />
-      <Timer />
-      <List />
+      <ContainerLeft>
+        <Form />
+        <Timer />
+      </ContainerLeft>
+
+      <ContainerRight>
+        <List />
+      </ContainerRight>
     </Container>
   );
 }

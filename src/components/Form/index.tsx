@@ -6,11 +6,12 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  align-items: stretch;
+  align-items: center;
   padding: 2em;
   border-radius: 8px;
   background-color: #526D82;
   box-shadow: 5px 5px 20px -6px #000000;
+  width: 80%;
 `
 
 const LabelAndInput = styled.div`

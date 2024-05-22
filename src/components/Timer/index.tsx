@@ -15,11 +15,11 @@ const SContainerTime = styled.div`
   flex-direction: column;
   gap: 1em;
   align-items: center;
-  text-align: center;
   padding: 2em;
   border-radius: 8px;
-  background-color: #526d82;
+  background-color: #526D82;
   box-shadow: 5px 5px 20px -6px #000000;
+  width: 80%;
 `;
 
 const Timer = () => {
