@@ -61,7 +61,7 @@ const Form = () => {
           required
         />
       </LabelAndInput>
-      <Button />
+      <Button text="Add"/>
     </StyledForm>
   );
 };

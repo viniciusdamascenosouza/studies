@@ -15,10 +15,17 @@ const StyledButton = styled.button`
     }
 `
 
-const Button = () => {
-  return <StyledButton>Button</StyledButton>;
-};
+interface ButtonProps{
+  text: string
+}
 
+const Button: React.FC<ButtonProps> = ({ text }) => {
+  return(
+    <StyledButton>
+      {text}
+    </StyledButton>
+  )
+}
 
 
 export default Button;
