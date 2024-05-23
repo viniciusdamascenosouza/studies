@@ -1,40 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Task from "./Task";
+import { time } from "console";
 
 const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1em;
-`
-
-
+`;
 
 const List = () => {
-  const tarefas = [
+  const [tasks, setTasks] = useState([
     {
       task: "React",
       time: "02:00:00",
     },
     {
-      task: "TypeScript",
+      task: "Javascript",
       time: "01:00:00",
     },
     {
-        task: "Styled-components",
-        time: "01:00:00",
+      task: "Typescript",
+      time: "03:00:00",
     },
-  ];
+  ]);
 
   return (
     <aside>
-      <h2 style={{fontSize:"28px", color:"#fff", marginBottom:"12px"}}>Daily Studies</h2>
+      <h2
+        style={{ fontSize: "28px", color: "#fff", marginBottom: "12px" }}
+        onClick={() =>
+          setTasks([...tasks, { task: "Styled-components", time: "00:30:00" }])
+        }
+      >
+        Daily Studies
+      </h2>
       <TaskList>
-        {tarefas.map(({task, time}, index) => (
-          <Task 
-          task={task}
-          time={time}
-            />
+        {tasks.map(({ task, time }, index) => (
+          <Task key={index} task={task} time={time} />
         ))}
       </TaskList>
     </aside>
