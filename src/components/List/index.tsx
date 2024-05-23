@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Task from "./Task";
-import { time } from "console";
 
 const TaskList = styled.ul`
   display: flex;
