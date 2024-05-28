@@ -1,6 +1,8 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import styled from "styled-components";
+import { TForm } from "../../Types/form_type";
+import { uuid } from "uuidv4";
 
 const StyledForm = styled.form`
   display: flex;
@@ -38,26 +40,23 @@ const Input = styled.input`
   }
 `;
 
-interface TaskState {
-  task: string;
-  time: string;
-}
-
-const Form: React.FC = () => {
-  const [state, setState] = useState<TaskState>({ task: "", time: "00:00" });
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setState(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+const Form: React.FC<TForm> = ({ setTasks }) => {
+  const [task, setTask] = useState<string>("");
+  const [time, setTime] = useState<string>("00:00");
 
   const addTask = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    console.log("state :", state)
-  }
+    event.preventDefault();
+    setTasks((oldTasks) => [
+      ...oldTasks,
+      {
+        task,
+        time,
+        selected: false,
+        completed: false,
+        id: uuid(),
+      },
+    ]);
+  };
 
   return (
     <StyledForm action="" onSubmit={addTask}>
@@ -67,8 +66,8 @@ const Form: React.FC = () => {
           type="text"
           name="task"
           id="task"
-          value={state.task}
-          onChange={handleInputChange}
+          value={task}
+          onChange={(event) => setTask(event.target.value)}
           placeholder="What do you want to study?"
           required
         />
@@ -79,15 +78,15 @@ const Form: React.FC = () => {
           type="time"
           step="1"
           name="time"
-          value={state.time}
-          onChange={handleInputChange}
+          value={time}
+          onChange={(event) => setTime(event.target.value)}
           id="time"
           min="00:00:00"
-          max="01:30:00"
+          max="02:00:00"
           required
         />
       </LabelAndInput>
-      <Button text="Add" />
+      <Button type="submit" text="Add Task" />
     </StyledForm>
   );
 };

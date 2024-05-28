@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { TButton } from "../../Types/button_type";
 
 const StyledButton = styled.button`
   border: 1px solid transparent;
@@ -15,13 +16,10 @@ const StyledButton = styled.button`
     }
 `
 
-interface ButtonProps{
-  text: string
-}
+const Button: React.FC<TButton> = ({ text }, {type = "button"}) => {
 
-const Button: React.FC<ButtonProps> = ({ text }) => {
   return(
-    <StyledButton>
+    <StyledButton type={type}>
       {text}
     </StyledButton>
   )

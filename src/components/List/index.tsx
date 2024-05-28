@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import Task from "./Task";
+import { TTask } from "../../Types/task_type";
 
 const TaskList = styled.ul`
   display: flex;
@@ -8,35 +8,15 @@ const TaskList = styled.ul`
   gap: 1em;
 `;
 
-const List = () => {
-  const [tasks, setTasks] = useState([
-    {
-      task: "React",
-      time: "02:00:00",
-    },
-    {
-      task: "Javascript",
-      time: "01:00:00",
-    },
-    {
-      task: "Typescript",
-      time: "03:00:00",
-    },
-  ]);
-
+const List = ({ tasks }: { tasks: TTask[] }) => {
   return (
     <aside>
-      <h2
-        style={{ fontSize: "28px", color: "#fff", marginBottom: "12px" }}
-        onClick={() =>
-          setTasks([...tasks, { task: "Styled-components", time: "00:30:00" }])
-        }
-      >
+      <h2 style={{ fontSize: "28px", color: "#fff", marginBottom: "12px" }}>
         Daily Studies
       </h2>
       <TaskList>
-        {tasks.map(({ task, time }, index) => (
-          <Task key={index} task={task} time={time} />
+        {tasks.map((item, index) => (
+          <Task key={index} {...item} />
         ))}
       </TaskList>
     </aside>

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { TTask } from "../../../Types/task_type"
 
 const STask = styled.li`
   border: none;
@@ -14,11 +15,12 @@ const STask = styled.li`
     }
 `
 
-const Task = (props: { task: string, time: string}) => {
+const Task = ( {task, time, selected, completed, id}: TTask ) => {
+  console.log("Item atual: ", task, time, selected, completed, id)
     return(
         <STask>
-            <h3>{props.task}</h3>
-            <span>{props.time}</span>
+            <h3>{task}</h3>
+            <span>{time}</span>
         </STask>
     )
 }

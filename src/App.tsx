@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./components/Form";
 import List from "./components/List";
 import styled from "styled-components";
 import Timer from "./components/Timer";
+import { TTask } from "./Types/task_type";
 
 const Container = styled.div`
   display: grid;
@@ -15,24 +16,26 @@ const ContainerLeft = styled.div`
   row-gap: 4em;
 
   grid-column: 1 / 2;
-`
+`;
 
 const ContainerRight = styled.div`
   display: flex;
   flex-direction: column;
   grid-column: 2 / 3;
-`
+`;
 
 function App() {
+  const [tasks, setTasks] = useState<TTask[]>([]);
+
   return (
     <Container>
       <ContainerLeft>
-        <Form />
+        <Form setTasks={setTasks} />
         <Timer />
       </ContainerLeft>
 
       <ContainerRight>
-        <List />
+        <List tasks={tasks}/>
       </ContainerRight>
     </Container>
   );
