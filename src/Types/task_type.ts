@@ -5,3 +5,7 @@ export interface TTask {
   completed: boolean;
   id: string;
 }
+
+export interface TList extends TTask {
+  selectTask: (taskSelected: TTask) => void;
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import styled from "styled-components";
 import { TForm } from "../../Types/form_type";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 
 const StyledForm = styled.form`
   display: flex;
@@ -53,9 +53,11 @@ const Form: React.FC<TForm> = ({ setTasks }) => {
         time,
         selected: false,
         completed: false,
-        id: uuid(),
+        id: uuidv4(),
       },
     ]);
+    setTask("");
+    setTime("00:00");
   };
 
   return (
@@ -86,7 +88,9 @@ const Form: React.FC<TForm> = ({ setTasks }) => {
           required
         />
       </LabelAndInput>
-      <Button type="submit" text="Add Task" />
+      <Button type="submit">
+        Add task
+      </Button>
     </StyledForm>
   );
 };

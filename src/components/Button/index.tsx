@@ -16,11 +16,11 @@ const StyledButton = styled.button`
     }
 `
 
-const Button: React.FC<TButton> = ({ text }, {type = "button"}) => {
+const Button: React.FC<TButton> = ({ onClick, type, children }) => {
 
   return(
-    <StyledButton type={type}>
-      {text}
+    <StyledButton type={type} onClick={onClick}>
+      {children}
     </StyledButton>
   )
 }
